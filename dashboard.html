@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; background: #f4f6f8; }
+    header { background: #1c75bc; color: white; padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+    header img { height: 60px; }
+    header h1 { margin: 0; font-size: 28px; }
+    nav { background: #fff; padding: 10px 20px; display: flex; gap: 15px; border-bottom: 1px solid #ccc; }
+    nav a { text-decoration: none; color: #1c75bc; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .page { display: none; padding: 20px; max-width: 1000px; margin: auto; }
+    .active { display: block; }
+    .section { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .section h3 { margin-top: 0; }
+    input, select, textarea { margin-bottom: 10px; padding: 8px; width: 100%; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc; }
+    button { padding: 10px 20px; background: #1c75bc; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #155a8a; }
+    #tenantResult, #propertyResult { margin-top: 10px; color: green; font-weight: bold; }
+    .marketing { text-align: center; padding: 20px; background: #e1f0ff; border-radius: 8px; margin-bottom: 20px; }
+    .marketing h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header style="display:flex; align-items:center; gap:15px; padding: 10px; border-bottom: 2px solid #ccc;">
+  <!-- Logo -->
+  <img src="https://drive.google.com/uc?export=view&id=1MtL9uwGr3T2pW9R_2wsE-8dqYOBgYc1N" 
+       alt="LockMyHome Logo" 
+       style="height:60px; width:auto; object-fit:contain;">
+
+</header>
+
+
+
+
+  <!-- Navigation -->
+  <nav>
+    <a onclick="showPage('homePage')">Home</a>
+    <a onclick="showPage('tenantsPage')">Add Tenant</a>
+    <a onclick="showPage('ownersPage')">List Property</a>
+    <a onclick="showPage('contactPage')">Contact Us</a>
+  </nav>
+
+<!-- Homepage Section -->
+<div id="homePage" class="page active" style="padding:20px;">
+
+  <!-- Feature Cards -->
+<section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-bottom:30px;">
+
+  <!-- Hassle-Free Renting -->
+  <div style="
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    color: #fff; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+    text-align:center; 
+    cursor:pointer; 
+    transition: transform 0.3s, box-shadow 0.3s;"
+    onclick="showPage('tenantsPage')"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+  >
+    <h2 style="color:#fff; margin-bottom:10px;">Hassle-Free Renting</h2>
+    <p style="color:#f0f0f0;">
+      Find your ideal home without paying a single brokerage. Options for families, couples, or individuals in prime locations. Special requirements for unmarried couples, bachelors (M/F). Talk to our expert today.
+    </p>
+  </div>
+
+  <!-- Guaranteed Rent -->
+  <div style="
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: #fff; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+    text-align:center; 
+    cursor:pointer; 
+    transition: transform 0.3s, box-shadow 0.3s;"
+    onclick="showPage('ownersPage')"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+  >
+    <h2 style="color:#fff; margin-bottom:10px;">Guaranteed Rent</h2>
+    <p style="color:#f0f0f0;">
+      List your property and receive rent directly from us, starting the next day. No worries about tenant payments.
+    </p>
+  </div>
+
+  <!-- No Brokerage Charges -->
+  <div style="
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    color: #fff; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+    text-align:center; 
+    cursor:pointer; 
+    transition: transform 0.3s, box-shadow 0.3s;"
+    onclick="showPage('tenantsPage')"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+  >
+    <h2 style="color:#fff; margin-bottom:10px;">No Brokerage Charges</h2>
+    <p style="color:#f0f0f0;">
+      Tenants pay zero brokerage, and owners get hassle-free management. Transparent and simple process for everyone.
+    </p>
+  </div>
+
+  <!-- Prime Locations -->
+  <div style="
+    background: linear-gradient(135deg, #9C27B0, #BA68C8);
+    color: #fff; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+    text-align:center; 
+    cursor:pointer; 
+    transition: transform 0.3s, box-shadow 0.3s;"
+    onclick="showPage('tenantsPage')"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+  >
+    <h2 style="color:#fff; margin-bottom:10px;">Prime Locations</h2>
+    <p style="color:#f0f0f0;">
+      Homes in posh societies and convenient areas. Special options for unmarried couples and bachelors. Talk to our expert to find your ideal property.
+    </p>
+  </div>
+
+  <!-- Talk to Our Expert -->
+  <div style="
+    background: linear-gradient(135deg, #00BCD4, #4DD0E1);
+    color: #fff; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+    text-align:center; 
+    cursor:pointer; 
+    transition: transform 0.3s, box-shadow 0.3s;"
+    onclick="showPage('contactPage')"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+  >
+    <h2 style="color:#fff; margin-bottom:10px;">Talk to Our Expert</h2>
+    <p style="color:#f0f0f0;">
+      Have questions or special requirements? Our expert will guide you. Click here to contact us.
+    </p>
+  </div>
+
+</section>
+
+
+  <!-- Special Requirements & Expert -->
+  <section style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-bottom:30px;">
+    <div style="flex:1; min-width:280px; background:#eaf4ff; padding:20px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.05);">
+      <h2 style="color:#1a73e8;">Special Requirements</h2>
+      <p style="color:#333;">
+        We accommodate unmarried couples, bachelor males, and bachelor females. Talk to our expert to find the perfect home as per your need.
+      </p>
+    </div>
+
+<div style="flex:1; min-width:280px; background:#fff3e0; padding:20px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.05);">
+  <h2 style="color:#fb8c00;">For More Enquiry</h2>
+  <form id="enquiryForm" style="display:flex; flex-direction:column; gap:10px;">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="tel" name="Phone" placeholder="Phone Number" required>
+    <input type="email" name="Email" placeholder="Email ID" required>
+    <label>Requirement
+      <select name="Requirement" required>
+        <option value="">Select</option>
+        <option value="List Property">List Property</option>
+        <option value="Find Rented Home">Find Rented Home</option>
+        <option value="Other Enquiry">Other Enquiry</option>
+      </select>
+    </label>
+    <!-- Add Notes field -->
+    <textarea name="Notes" placeholder="Additional Notes (optional)" style="padding:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+    <button type="submit" style="background:#1a73e8; color:white; border:none; border-radius:6px; padding:10px; cursor:pointer;">
+      Submit Enquiry
+    </button>
+  </form>
+  <div id="enquiryResult" style="margin-top:10px; color:green; font-weight:bold;"></div>
+</div>
+
+  </section>
+
+</div>
+
+
+  <!-- Tenant Form -->
+  <div id="tenantsPage" class="page">
+    <h2>Add New Tenant</h2>
+    <form id="tenantForm" class="section">
+      <h3>Tenant Information</h3>
+      <input type="text" name="Name" placeholder="Tenant Name" required>
+      <input type="text" name="Phone" placeholder="Phone">
+      <input type="text" name="AltPhone" placeholder="Alternate Phone">
+      <input type="text" name="Budget" placeholder="Budget (₹)">
+      <label>Shifting Timing
+        <select name="ShiftingTiming" required>
+          <option value="">Select</option>
+          <option value="As soon As Possible">As soon As Possible</option>
+          <option value="Within a week">Within a week</option>
+          <option value="Within 10 days">Within 10 days</option>
+          <option value="Within 15 days">Within 15 days</option>
+          <option value="Next month">Next month</option>
+          <option value="Any time">Any time</option>
+        </select>
+      </label>
+      <label>Preferred BHK
+        <select name="PreferredBHK" required>
+          <option value="">Select BHK</option>
+          <option value="1RK">1RK</option><option value="1BHK">1BHK</option>
+          <option value="2BHK">2BHK</option><option value="3BHK">3BHK</option>
+          <option value="4BHK">4BHK</option><option value="5BHK+">5BHK+</option>
+          <option value="Studio Apartment">Studio Apartment</option>
+          <option value="Independent House">Independent House</option>
+          <option value="Villa">Villa</option><option value="Penthouse">Penthouse</option>
+          <option value="Duplex">Duplex</option><option value="Row House">Row House</option>
+          <option value="1RK/1BHK">1RK/1BHK</option><option value="1BHK/2BHK">1BHK/2BHK</option>
+          <option value="2BHK/3BHK">2BHK/3BHK</option>
+        </select>
+      </label>
+      <input type="text" name="PreferredLocation" placeholder="Preferred Area Name">
+      <input type="text" name="Address" placeholder="Preferred Address">
+      <input type="text" name="City" value="Bangalore" readonly>
+      <input type="text" name="Pincode" placeholder="Pincode">
+      <input type="text" name="MembersCount" placeholder="How many members will stay">
+      <label>Who Will Stay
+        <select name="WhoWillStay">
+          <option value="">Select</option>
+          <option value="Family">Family</option>
+          <option value="Couple">Couple</option>
+          <option value="Bachelor (M)">Bachelor (M)</option>
+          <option value="Bachelor (F)">Bachelor (F)</option>
+          <option value="Friends Sharing">Friends Sharing</option>
+          <option value="Company Guest">Company Guest</option>
+        </select>
+      </label>
+      <label>House Facing
+        <select name="HouseFacing">
+          <option value="">Select</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+        </select>
+      </label>
+      <label>Furnishing
+        <select name="Furnishing">
+          <option value="">Select</option>
+          <option value="Semi Furnished">Semi Furnished</option>
+          <option value="Fully Furnished">Fully Furnished</option>
+        </select>
+      </label>
+      <label>Car Parking Required?
+        <select name="CarParking">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option><option value="No">No</option>
+        </select>
+      </label>
+      <label>Bike Parking Required?
+        <select name="BikeParking">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option><option value="No">No</option>
+        </select>
+      </label>
+      <label>Toilet Required
+        <select name="ToiletType">
+          <option value="">Select</option>
+          <option value="Indian">Indian</option>
+          <option value="Western">Western</option>
+          <option value="Both">Both</option>
+        </select>
+      </label>
+      <button type="submit">Add Tenant</button>
+    </form>
+    <div id="tenantResult"></div>
+  </div>
+
+  <!-- Property Form -->
+  <div id="ownersPage" class="page">
+    <h2>List New Property</h2>
+    <form id="propertyForm" class="section">
+      <h3>Property Information</h3>
+      <input type="number" name="TotalUnits" placeholder="Total Units" required>
+      <label>Property Type
+        <select name="PropertyType" required>
+          <option value="">Select Property Type</option>
+          <option value="1RK">1 RK</option>
+          <option value="1BHK">1 BHK</option>
+          <option value="2BHK">2 BHK</option>
+          <option value="3BHK">3 BHK</option>
+          <option value="4BHK">4 BHK</option>
+          <option value="5BHK+">5 BHK+</option>
+          <option value="Studio Apartment">Studio Apartment</option>
+          <option value="Independent House">Independent House</option>
+          <option value="Villa">Villa</option>
+          <option value="Penthouse">Penthouse</option>
+          <option value="Duplex">Duplex</option>
+          <option value="Row House">Row House</option>
+        </select>
+      </label>
+      <input type="text" name="FloorNo" placeholder="Floor No.">
+      <input type="text" name="BuiltUpArea" placeholder="Built-up Area (sq.ft.)">
+      <input type="text" name="CarpetArea" placeholder="Carpet Area (sq.ft.)">
+      <label>Status
+        <select name="Status">
+          <option value="">Select</option>
+          <option value="Vacant">Vacant</option>
+          <option value="Occupied">Occupied</option>
+        </select>
+      </label>
+      <label>Availability Date
+        <input type="date" name="AvailabilityDate">
+      </label>
+      <label>Property Acquired By
+        <select name="AcquiredBy">
+          <option value="">Select</option>
+          <option value="Owner">Owner</option>
+          <option value="Broker">Broker</option>
+          <option value="Company">Company</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <input type="text" name="Rent" placeholder="Rent (₹)">
+      <input type="text" name="SecurityDeposit" placeholder="Security Deposit (₹)">
+      <label>Furnishing
+        <select name="Furnishing">
+          <option value="">Select</option>
+          <option value="Semi Furnished">Semi Furnished</option>
+          <option value="Fully Furnished">Fully Furnished</option>
+        </select>
+      </label>
+      <label>Car Parking
+        <select name="CarParking">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+      <label>Bike Parking
+        <select name="BikeParking">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+
+      <h3>Owner Information</h3>
+      <input type="text" name="Owner" placeholder="Owner Name">
+      <input type="text" name="OwnerPhone" placeholder="Owner Phone Number">
+      <input type="email" name="OwnerEmail" placeholder="Owner Email ID">
+      <label>House Facing
+        <select name="HouseFacing">
+          <option value="">Select</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+        </select>
+      </label>
+
+      <h3>Location & Area</h3>
+      <input type="text" name="AreaName" placeholder="Area Name">
+      <input type="text" name="Address" placeholder="Full Address">
+      <input type="text" name="City" value="Bangalore">
+      <input type="text" name="Pincode" placeholder="Pincode">
+      <button type="submit">List Property</button>
+    </form>
+    <div id="propertyResult"></div>
+  </div>
+
+  <!-- Contact -->
+  <div id="contactPage" class="page section">
+    <h2>Contact Us</h2>
+    <p>Email: support@lockmyhome.in</p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+  </div>
+
+  <script>
+    // Switch pages
+    function showPage(pageId){
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    // Tenant Form
+    document.getElementById('tenantForm').onsubmit = function(e){
+      e.preventDefault();
+      const f = e.target;
+      const values = [
+        f.Name.value, f.Phone.value, f.AltPhone.value,
+        f.Budget.value, f.ShiftingTiming.value,
+        f.PreferredBHK.value, f.PreferredLocation.value,
+        f.Address.value, f.City.value, f.Pincode.value,
+        f.MembersCount.value, f.WhoWillStay.value,
+        f.HouseFacing.value, f.Furnishing.value,
+        f.CarParking.value, f.BikeParking.value,
+        f.ToiletType.value
+      ];
+      google.script.run.withSuccessHandler(msg=>{
+        document.getElementById('tenantResult').innerText = msg;
+        f.reset();
+        f.City.value = "Bangalore";
+      }).addTenant(values);
+    };
+
+    // Property Form
+    document.getElementById('propertyForm').onsubmit = function(e){
+      e.preventDefault();
+      const f = e.target;
+      const values = {
+        TotalUnits:      f.TotalUnits.value,
+        PropertyType:    f.PropertyType.value,
+        Owner:           f.Owner.value,
+        OwnerPhone:      f.OwnerPhone.value,
+        OwnerEmail:      f.OwnerEmail.value,
+        HouseFacing:     f.HouseFacing.value,
+        FloorNo:         f.FloorNo.value,
+        BuiltUpArea:     f.BuiltUpArea.value,
+        CarpetArea:      f.CarpetArea.value,
+        Status:          f.Status.value,
+        AvailabilityDate:f.AvailabilityDate.value,
+        AcquiredBy:      f.AcquiredBy.value,
+        Rent:            f.Rent.value,
+        SecurityDeposit: f.SecurityDeposit.value,
+        Furnishing:      f.Furnishing.value,
+        CarParking:      f.CarParking.value,
+        BikeParking:     f.BikeParking.value,
+        AreaName:        f.AreaName.value,
+        Address:         f.Address.value,
+        City:            f.City.value,
+        Pincode:         f.Pincode.value
+      };
+      google.script.run.withSuccessHandler(msg=>{
+        document.getElementById('propertyResult').innerText = msg;
+        f.reset();
+        f.City.value = "Bangalore";
+      }).addProperty(values);
+    };
+  
+// Handle enquiry form submission
+document.getElementById('enquiryForm').onsubmit = function(e) {
+  e.preventDefault();
+  const f = e.target;
+  const values = {
+    Name: f.Name.value,
+    Phone: f.Phone.value,
+    Email: f.Email.value,
+    Requirement: f.Requirement.value,
+    Notes: f.Notes.value
+  };
+
+  google.script.run.withSuccessHandler(msg => {
+    document.getElementById('enquiryResult').innerText = msg;
+    f.reset();
+  }).submitEnquiry(values);
+};
+
+
+
+
+  </script>
+
+  
+
+</body>
+</html>
