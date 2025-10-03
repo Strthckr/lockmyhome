@@ -2,15 +2,14 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>LockMyHome Dashboard</title>
+  <title>LockMyHome</title>
   <base target="_top">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; background: #f4f6f8; }
     header { background: #1c75bc; color: white; padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
     header img { height: 60px; }
-    header h1 { margin: 0; font-size: 28px; }
     nav { background: #fff; padding: 10px 20px; display: flex; gap: 15px; border-bottom: 1px solid #ccc; }
-    nav a { text-decoration: none; color: #1c75bc; font-weight: bold; cursor:pointer; }
+    nav a { text-decoration: none; color: #1c75bc; font-weight: bold; cursor: pointer; }
     nav a:hover { text-decoration: underline; }
     .page { display: none; padding: 20px; max-width: 1000px; margin: auto; }
     .active { display: block; }
@@ -20,15 +19,13 @@
     button { padding: 10px 20px; background: #1c75bc; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
     button:hover { background: #155a8a; }
     #tenantResult, #propertyResult, #enquiryResult { margin-top: 10px; color: green; font-weight: bold; }
-    .marketing { text-align: center; padding: 20px; background: #e1f0ff; border-radius: 8px; margin-bottom: 20px; }
-    .marketing h2 { margin-top: 0; }
   </style>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
 <header>
   <img src="https://drive.google.com/uc?export=view&id=1MtL9uwGr3T2pW9R_2wsE-8dqYOBgYc1N" alt="LockMyHome Logo">
+  <h1>LockMyHome</h1>
 </header>
 
 <nav>
@@ -38,60 +35,34 @@
   <a onclick="showPage('contactPage')">Contact Us</a>
 </nav>
 
+<!-- Home Page -->
 <div id="homePage" class="page active">
-  <!-- Home content -->
-  <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-bottom:30px;">
-    <div onclick="showPage('tenantsPage')" style="background: linear-gradient(135deg, #2196F3, #64B5F6); color: #fff; padding:20px; border-radius:12px; text-align:center; cursor:pointer;"> 
-      <h2>Hassle-Free Renting</h2>
-      <p>Find your ideal home without paying brokerage. Talk to our expert today.</p>
-    </div>
-    <div onclick="showPage('ownersPage')" style="background: linear-gradient(135deg, #4CAF50, #81C784); color: #fff; padding:20px; border-radius:12px; text-align:center; cursor:pointer;"> 
-      <h2>Guaranteed Rent</h2>
-      <p>List your property and receive rent directly from us. No worries about tenant payments.</p>
-    </div>
-    <div onclick="showPage('tenantsPage')" style="background: linear-gradient(135deg, #FF9800, #FFB74D); color: #fff; padding:20px; border-radius:12px; text-align:center; cursor:pointer;"> 
-      <h2>No Brokerage Charges</h2>
-      <p>Tenants pay zero brokerage, owners get hassle-free management.</p>
-    </div>
-    <div onclick="showPage('contactPage')" style="background: linear-gradient(135deg, #00BCD4, #4DD0E1); color: #fff; padding:20px; border-radius:12px; text-align:center; cursor:pointer;"> 
-      <h2>Talk to Our Expert</h2>
-      <p>Have questions or special requirements? Contact us today.</p>
-    </div>
-  </section>
-
-  <section style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
-    <div style="flex:1; min-width:280px; background:#eaf4ff; padding:20px; border-radius:12px;">
-      <h2>Special Requirements</h2>
-      <p>We accommodate unmarried couples, bachelor males, and bachelor females. Talk to our expert to find the perfect home.</p>
-    </div>
-
-    <div style="flex:1; min-width:280px; background:#fff3e0; padding:20px; border-radius:12px;">
-      <h2>For More Enquiry</h2>
-      <form id="enquiryForm" style="display:flex; flex-direction:column; gap:10px;">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <input type="tel" name="Phone" placeholder="Phone Number" required>
-        <input type="email" name="Email" placeholder="Email ID" required>
-        <label>Requirement
-          <select name="Requirement" required>
-            <option value="">Select</option>
-            <option value="List Property">List Property</option>
-            <option value="Find Rented Home">Find Rented Home</option>
-            <option value="Other Enquiry">Other Enquiry</option>
-          </select>
-        </label>
-        <textarea name="Notes" placeholder="Additional Notes (optional)"></textarea>
-        <button type="submit">Submit Enquiry</button>
-      </form>
-      <div id="enquiryResult"></div>
-    </div>
-  </section>
+  <h2>Welcome to LockMyHome</h2>
+  <p>Find your ideal home or list your property easily without any brokerage.</p>
 </div>
 
 <!-- Tenant Form -->
 <div id="tenantsPage" class="page">
   <h2>Add New Tenant</h2>
   <form id="tenantForm" class="section">
-    <!-- Add tenant form fields exactly as per your previous code -->
+    <input type="text" name="Name" placeholder="Full Name" required>
+    <input type="tel" name="Phone" placeholder="Phone 1" required>
+    <input type="tel" name="AltPhone" placeholder="Phone 2">
+    <input type="text" name="Budget" placeholder="Budget (₹)" required>
+    <input type="text" name="ShiftingTiming" placeholder="Shifting Date/Timing">
+    <input type="text" name="PreferredBHK" placeholder="Preferred BHK">
+    <input type="text" name="PreferredLocation" placeholder="Preferred Location">
+    <input type="text" name="Address" placeholder="Current Address">
+    <input type="text" name="City" placeholder="City" value="Bangalore">
+    <input type="text" name="Pincode" placeholder="Pincode">
+    <input type="text" name="MembersCount" placeholder="Members Staying">
+    <input type="text" name="WhoWillStay" placeholder="Who will stay">
+    <input type="text" name="HouseFacing" placeholder="House Facing">
+    <input type="text" name="Furnishing" placeholder="Furnishing">
+    <input type="text" name="CarParking" placeholder="Car Parking">
+    <input type="text" name="BikeParking" placeholder="Bike Parking">
+    <input type="text" name="ToiletType" placeholder="Toilet Type">
+    <button type="submit">Add Tenant</button>
   </form>
   <div id="tenantResult"></div>
 </div>
@@ -100,12 +71,33 @@
 <div id="ownersPage" class="page">
   <h2>List New Property</h2>
   <form id="propertyForm" class="section">
-    <!-- Add property form fields exactly as per your previous code -->
+    <input type="text" name="TotalUnits" placeholder="Total Units" required>
+    <input type="text" name="PropertyType" placeholder="Property Type" required>
+    <input type="text" name="Owner" placeholder="Owner Name" required>
+    <input type="tel" name="OwnerPhone" placeholder="Owner Phone" required>
+    <input type="email" name="OwnerEmail" placeholder="Owner Email" required>
+    <input type="text" name="HouseFacing" placeholder="House Facing">
+    <input type="text" name="FloorNo" placeholder="Floor No.">
+    <input type="text" name="BuiltUpArea" placeholder="Built-up Area (sq.ft.)">
+    <input type="text" name="CarpetArea" placeholder="Carpet Area (sq.ft.)">
+    <input type="text" name="Status" placeholder="Status (Vacant/Occupied)">
+    <input type="date" name="AvailabilityDate" placeholder="Availability Date">
+    <input type="text" name="AcquiredBy" placeholder="Acquired By">
+    <input type="text" name="Rent" placeholder="Rent (₹)">
+    <input type="text" name="SecurityDeposit" placeholder="Security Deposit (₹)">
+    <input type="text" name="Furnishing" placeholder="Furnishing">
+    <input type="text" name="CarParking" placeholder="Car Parking">
+    <input type="text" name="BikeParking" placeholder="Bike Parking">
+    <input type="text" name="AreaName" placeholder="Area Name">
+    <input type="text" name="Address" placeholder="Property Address">
+    <input type="text" name="City" placeholder="City" value="Bangalore">
+    <input type="text" name="Pincode" placeholder="Pincode">
+    <button type="submit">List Property</button>
   </form>
   <div id="propertyResult"></div>
 </div>
 
-<!-- Contact -->
+<!-- Contact Page -->
 <div id="contactPage" class="page section">
   <h2>Contact Us</h2>
   <p>Email: support@lockmyhome.in</p>
@@ -113,15 +105,14 @@
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+const SCRIPT_URL = 'YOUR_DEPLOYED_SCRIPT_URL_HERE'; // Replace with your Apps Script web app URL
 
-// Page switch
 function showPage(pageId){
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
 }
 
-// Tenant Form submission
+// Tenant Form Submit
 document.getElementById('tenantForm').onsubmit = function(e){
   e.preventDefault();
   const f = e.target;
@@ -136,17 +127,15 @@ document.getElementById('tenantForm').onsubmit = function(e){
     f.ToiletType.value
   ];
   fetch(SCRIPT_URL, {
-    method: 'POST',
+    method:'POST',
     body: JSON.stringify({type:'addTenant', values}),
     headers: {'Content-Type':'application/json'}
-  }).then(res=>res.text()).then(msg=>{
-    document.getElementById('tenantResult').innerText = msg;
-    f.reset();
-    f.City.value="Bangalore";
-  }).catch(err=>console.error(err));
+  }).then(res=>res.text())
+    .then(msg => { document.getElementById('tenantResult').innerText = msg; f.reset(); f.City.value="Bangalore"; })
+    .catch(err=>console.error(err));
 };
 
-// Property Form submission
+// Property Form Submit
 document.getElementById('propertyForm').onsubmit = function(e){
   e.preventDefault();
   const f = e.target;
@@ -175,28 +164,11 @@ document.getElementById('propertyForm').onsubmit = function(e){
   };
   fetch(SCRIPT_URL, {
     method:'POST',
-    body:JSON.stringify({type:'addProperty', values}),
+    body: JSON.stringify({type:'addProperty', values}),
     headers:{'Content-Type':'application/json'}
-  }).then(res=>res.text()).then(msg=>{
-    document.getElementById('propertyResult').innerText=msg;
-    f.reset();
-    f.City.value="Bangalore";
-  }).catch(err=>console.error(err));
-};
-
-// Enquiry Form submission
-document.getElementById('enquiryForm').onsubmit = function(e){
-  e.preventDefault();
-  const f = e.target;
-  const values = {Name:f.Name.value, Phone:f.Phone.value, Email:f.Email.value, Requirement:f.Requirement.value, Notes:f.Notes.value};
-  fetch(SCRIPT_URL,{
-    method:'POST',
-    body:JSON.stringify({type:'submitEnquiry', values}),
-    headers:{'Content-Type':'application/json'}
-  }).then(res=>res.text()).then(msg=>{
-    document.getElementById('enquiryResult').innerText=msg;
-    f.reset();
-  }).catch(err=>console.error(err));
+  }).then(res=>res.text())
+    .then(msg => { document.getElementById('propertyResult').innerText = msg; f.reset(); f.City.value="Bangalore"; })
+    .catch(err=>console.error(err));
 };
 </script>
 
